@@ -8,13 +8,13 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.18.0",
-    "@tomochain/snapshot.js": "github:tomochain/snapshot.js#master",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "eslint": "^6.7.2",
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
+    "snapshot.js": "github:tomochain/snapshot.js#master",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
