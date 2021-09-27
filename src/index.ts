@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import api from './api';
+import startCrawler from './master_nodes_scores';
+const db = require('./models/')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,3 +14,5 @@ app.use(cors({ maxAge: 86400 }));
 app.use('/api', api);
 
 app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
+
+startCrawler(15740091);
