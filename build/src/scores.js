@@ -37,7 +37,6 @@ function scores(parent, args) {
         const key = crypto_1.createHash('sha256')
             .update(JSON.stringify(args))
             .digest('hex');
-        console.log('Key', key);
         let snapshotBlockNum = 'latest';
         if (args.snapshot !== 'latest') {
             const currentBlockNum = yield getBlockNum(network);

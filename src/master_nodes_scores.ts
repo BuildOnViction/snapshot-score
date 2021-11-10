@@ -29,7 +29,7 @@ async function watchValidator (blockNumber) {
         cpValidator = await web3.eth.getBlockNumber()
         return validator.getPastEvents('allEvents', {
             fromBlock: blockNumber,
-            toBlock: blockNumber
+            // toBlock: blockNumber
         }).then(async events => {
             console.log("events ", events)
             let voteList : any[] = [];
@@ -188,9 +188,7 @@ async function getPastEvent (start) {
             Promise.all(map);
             getPastEvent(lb+5000);
         }
-    })
-
-    
+    })    
 }
 
 export default async function start(block) {
