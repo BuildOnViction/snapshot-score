@@ -1,6 +1,6 @@
 import { createHash } from 'crypto';
 import snapshot from 'snapshot.js';
-import { get, set } from './aws';
+import { get, set, deleteKey } from './aws';
 
 export const blockNumByNetwork = {};
 const blockNumByNetworkTs = {};
@@ -57,4 +57,9 @@ export default async function scores(parent, args) {
     state,
     scores
   };
+}
+
+export async function deleteScore(key) {
+  const result = await deleteKey(key)
+  return result
 }

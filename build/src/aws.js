@@ -28,7 +28,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.get = exports.set = void 0;
+exports.deleteKey = exports.get = exports.set = void 0;
 const AWS = __importStar(require("@aws-sdk/client-s3"));
 function streamToString(stream) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -77,3 +77,19 @@ function get(key) {
     });
 }
 exports.get = get;
+function deleteKey(key) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield client.deleteObject({
+                Bucket: process.env.AWS_BUCKET_NAME,
+                Key: `public/snapshot/1/${key}.json`
+            });
+            // @ts-ignore
+            return true;
+        }
+        catch (e) {
+            throw new Error(e);
+        }
+    });
+}
+exports.deleteKey = deleteKey;

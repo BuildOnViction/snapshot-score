@@ -1,5 +1,5 @@
 import express from 'express';
-import scores, { blockNumByNetwork } from './scores';
+import scores, { blockNumByNetwork, deleteScore } from './scores';
 
 const router = express.Router();
 
@@ -39,5 +39,17 @@ router.post('/scores', async (req, res) => {
     result
   });
 });
+
+router.post('/deleteScore', async (req, res) => {
+  const { params } = req.body;
+  const { key } = params;
+  let result
+  try {
+    result = await deleteScore(key)
+    return res.send(result)
+  } catch (error) {
+    return res.send(error)
+  }
+})
 
 export default router;

@@ -65,4 +65,16 @@ router.post('/scores', (req, res) => __awaiter(void 0, void 0, void 0, function*
         result
     });
 }));
+router.post('/deleteScore', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { params } = req.body;
+    const { key } = params;
+    let result;
+    try {
+        result = yield scores_1.deleteScore(key);
+        return res.send(result);
+    }
+    catch (error) {
+        return res.send(error);
+    }
+}));
 exports.default = router;

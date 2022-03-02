@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.blockNumByNetwork = void 0;
+exports.deleteScore = exports.blockNumByNetwork = void 0;
 const crypto_1 = require("crypto");
 const snapshot_js_1 = __importDefault(require("snapshot.js"));
 const aws_1 = require("./aws");
@@ -59,3 +59,10 @@ function scores(parent, args) {
     });
 }
 exports.default = scores;
+function deleteScore(key) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const result = yield aws_1.deleteKey(key);
+        return result;
+    });
+}
+exports.deleteScore = deleteScore;
