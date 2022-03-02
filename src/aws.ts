@@ -41,3 +41,16 @@ export async function get(key) {
     return false;
   }
 }
+
+export async function deleteKey(key) {
+  try {
+    await client.deleteObject({
+      Bucket: process.env.AWS_BUCKET_NAME,
+      Key: `public/snapshot/1/${key}.json`
+    });
+    // @ts-ignore
+    return true
+  } catch (e) {
+    throw new Error(e)
+  }
+}
