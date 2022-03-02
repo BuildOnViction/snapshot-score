@@ -60,6 +60,10 @@ export default async function scores(parent, args) {
 }
 
 export async function deleteScore(key) {
-  const result = await deleteKey(key)
-  return result
+  try {
+    const result = await deleteKey(key)
+    return result
+  } catch (error) {
+    throw error
+  }
 }

@@ -51,6 +51,6 @@ export async function deleteKey(key) {
     // @ts-ignore
     return true
   } catch (e) {
-    throw new Error(e)
+    throw e
   }
 }
