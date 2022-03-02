@@ -36,7 +36,10 @@ export default async function scores(parent, args) {
   const state = snapshotBlockNum === 'latest' ? 'pending' : 'final';
   let scores;
 
-  if (state === 'final') scores = await get(key);
+  if (state === 'final') {
+    console.log('Getting key ', key)
+    scores = await get(key);
+  }
 
   if (!scores) {
     scores = await snapshot.utils.getScoresDirect(
