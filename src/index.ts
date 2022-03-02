@@ -15,4 +15,4 @@ app.use('/api', api);
 
 app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
 
-startCrawler(15740091);
+// startCrawler(15740091);
